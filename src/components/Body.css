@@ -1,0 +1,23 @@
+.body-container {
+    --margin: 1rem;
+    background: var(--ghostwhite);
+    height: calc(100% - var(--margin));
+    width: calc(100% - 150px);
+    margin-top: var(--margin);
+    display: inline-block;
+    border-radius: 50px 0 0 0;
+}
+.title-wrap {
+    text-align: center;
+    padding: .8rem 0;
+}
+.title-wrap p {
+    color: #9a9a9a;
+    font-size: .8rem;
+}
+.title-wrap h1 {
+    font-size: 2.5rem;
+}
+.title-wrap h2 {
+    color: #9a9a9a;
+}

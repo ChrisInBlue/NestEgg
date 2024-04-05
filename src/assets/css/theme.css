@@ -44,6 +44,8 @@
     --border: 1px solid rgba(0,0,0,.1);
     /* SHADOW */
     --shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+    /* BACKGROUND */
+    --background: #2D5299;
 }
 html {
     font-family: Thicccboi, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

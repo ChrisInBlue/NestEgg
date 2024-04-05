@@ -1,10 +1,12 @@
 import './App.css';
-import DateTime from './components/DateTime';
+import Body from './components/Body';
+import SideNav from './components/SideNav';
 
 function App() {
   return (
     <div className="App">
-      <DateTime />
+      <SideNav />
+      <Body />      
     </div>
   );
 }

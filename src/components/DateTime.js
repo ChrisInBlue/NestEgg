@@ -10,7 +10,7 @@ const DateTime = () => {
   useEffect(() => {
     const updateDateTime = () => {
       const now = new Date();
-      const dayOfWeek = now.toLocaleDateString('en-US', { weekday: 'short' });
+      const dayOfWeek = now.toLocaleDateString('en-US', { weekday: 'long' });
       const date = `${now.getDate()} ${now.toLocaleString('en-US', { month: 'short' })} ${now.getFullYear()}`;
       const time = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', hourCycle: 'h23' });
 

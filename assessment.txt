@@ -32,32 +32,3 @@ Once you have completed the assessment, please share the link to your Github rep
 Please ask if you have any questions. We appreciate your effort and look forward to reviewing your work.
 
 
-
-
-NOTES:
-• THEME:
-    whites
-        - snow          = #FFFAFA
-        - ghost white   = #F8F8FF
-        - alice blue    = #F0F8FF
-        - antiflesh     = #FAFAFA
-        - gainsboro     = #F1EFF2
-        - off white     = #FBFBFB
-        - ivory         = #FFFFF0
-    Blacks
-        - midnight blue = #101720
-        - deep navy blue= #011222
-        - charcoal gray = #171717
-        - rich Blacks   = #020D19
-        - oil black     = #0C0C0C
-        - slate gray    = #0D1717
-        - obsidian      = #0B1215
-    blues
-        - baby blue     = #89CFF0
-        - sky blue      = #87CEEB
-        - horizon blue  = #117CEB
-        - azure         = #266FFB
-        - steel blue    = #4682B4
-        - royal blue    = #4169E1
-        - saphire blue  = #3E59E8
-

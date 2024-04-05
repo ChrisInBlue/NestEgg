@@ -1,0 +1,62 @@
+React Developer Assessment
+
+Overview
+Thank you for taking the time to complete the Developer Assessment. 
+This assessment is designed to evaluate your React skills, proficiency in Typescript, and understanding of state management using Redux. 
+Additionally, we will assess your knowledge of programming principles.
+
+Deadline
+• Assessment Deadline: Wednesday, 17 April 2024
+
+Assessment Criteria
+• Use ReactJS (Typescript) and Redux for state management.
+• Utilize any UI framework of your choice, such as TailWind, MaterialUI, etc.
+
+Project Description
+Build a Retirement Calculator using React JS to calculate the required retirement savings and monthly contributions needed to retire at a specified age.
+
+Input Fields
+1. Name
+2. Current Age
+3. Retirement Age
+4. Current Retirement Savings
+5. Current Retirement Savings Contribution
+6. Monthly Income Required at Retirement
+
+Output Display
+1. Required Retirement Savings at Retirement Age
+2. Required Monthly Contribution to achieve retirement savings goal
+
+Submission
+Once you have completed the assessment, please share the link to your Github repository with us.
+Please ask if you have any questions. We appreciate your effort and look forward to reviewing your work.
+
+
+
+
+NOTES:
+• THEME:
+    whites
+        - snow          = #FFFAFA
+        - ghost white   = #F8F8FF
+        - alice blue    = #F0F8FF
+        - antiflesh     = #FAFAFA
+        - gainsboro     = #F1EFF2
+        - off white     = #FBFBFB
+        - ivory         = #FFFFF0
+    Blacks
+        - midnight blue = #101720
+        - deep navy blue= #011222
+        - charcoal gray = #171717
+        - rich Blacks   = #020D19
+        - oil black     = #0C0C0C
+        - slate gray    = #0D1717
+        - obsidian      = #0B1215
+    blues
+        - baby blue     = #89CFF0
+        - sky blue      = #87CEEB
+        - horizon blue  = #117CEB
+        - azure         = #266FFB
+        - steel blue    = #4682B4
+        - royal blue    = #4169E1
+        - saphire blue  = #3E59E8

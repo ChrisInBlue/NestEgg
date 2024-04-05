@@ -8,8 +8,8 @@ export default function Body() {
         <p>Welcome to,</p>
         <h1>Nest Egg</h1>
         <h2>Retirement Calculator</h2>
-        <Calculator />
       </div>
+      <Calculator />
     </div>
   )
 }

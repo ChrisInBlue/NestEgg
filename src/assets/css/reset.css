@@ -1,0 +1,181 @@
+/* RESET */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+input:focus {
+  border: none;
+  outline: none;
+}
+ul {
+  list-style-type: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-weight: 100;
+  font-size: inherit;
+}
+button {
+  outline: none;
+  border: none;
+}
+ol,
+ul {
+  padding-left: 0rem;
+}
+a {
+  text-decoration: none;
+}
+/*MAIN*/
+html,
+body,
+#root,
+.App {
+  height: 100%;
+}
+body {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+}
+.effect {
+  transition: 0.1s;
+}
+.effect:hover {
+  transition: 0.1s;
+}
+.main-container {
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+.main-body {
+  height: 92%;
+}
+.attribute {
+  text-align: center;
+  color: #f5f5f5;
+}
+p {
+  margin-bottom: 0;
+}
+input {
+  border: none;
+  background: inherit;
+  border-radius: 8px;
+  padding: 0.4rem 0.8rem;
+  position: relative;
+  width: 250px;
+  margin: 0.6rem 0 0;
+  display: inline-block;
+  border: none;
+  outline: none;
+  vertical-align: bottom;
+  font-size: 0.9rem;
+  font-family: inherit;
+}
+img {
+  height: 50px;
+}

@@ -1,0 +1,66 @@
+/* FONTS */
+/* QUESTRIAL */
+@import url("https://fonts.googleapis.com/css2?family=Questrial:wght@100;200;300;400;500;600;700;800;900&display=swap");
+/* THICCCBOI */
+@font-face {
+    font-family: Thicccboi;
+    src: url(../fonts/THICCCBOI-Regular.ttf) format("truetype");
+}
+/*COLOURS*/
+:root {
+    /* WHITES */
+    --snow: #FFFAFA;
+    --ghostwhite: #F8F8FF;
+    --aliceblue: #F0F8FF;
+    --antiflesh: #FAFAFA;
+    --gainsboro: #F1EFF2;
+    --offwhite: #FBFBFB;
+    --ivory: #FFFFF0;
+    /* BLACKS */
+    --midnightblue: #101720;
+    --deepnavyblue: #011222;
+    --charcoalgray: #171717;
+    --richblacks: #020D19;
+    --oilblack: #0C0C0C;
+    --slategray: #0D1717;
+    --obsidian: #0B1215;
+    /* BLUES */
+    --babyblue: #89CFF0;
+    --skyblue: #87CEEB;
+    --horizonblue: #117CEB;
+    --azure: #266FFB;
+    --steelblue: #4682B4;
+    --royalblue: #4169E1;
+    --saphireblue: #3E59E8;
+    /* GREEN */
+    --green: #ADD6B8;
+    /* RED */
+    --red: #f55456;
+    /* ORANGE */
+    --orange: #F7A374;
+    /* PURPLE */
+    --purple: #CDB6DB;
+    /* BORDER */
+    --border: 1px solid rgba(0,0,0,.1);
+    /* SHADOW */
+    --shadow: rgba(0, 0, 0, 0.1) -4px 9px 25px -6px;
+}
+html {
+    font-family: Thicccboi, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;;
+}
+.red {
+    background: var(--red);
+}
+.orange {
+    background: var(--orange);
+}
+.green {
+    background: var(--green);
+}
+.purple {
+    background: var(--purple);
+}

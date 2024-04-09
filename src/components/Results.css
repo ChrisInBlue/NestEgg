@@ -11,6 +11,8 @@
 }
 .results-container h5 {
     font-size: 2rem;
+    margin: 1rem 0 0;
+    position: relative;
 }
 .results-container p {
     font-size: .8rem;
@@ -23,8 +25,12 @@
     border-radius: 4px;
     padding: .5rem;
     text-align: center;
+    min-height: 70px;
 }
-.results-container .block h5 span {
-    float: left;
-    color: #a9a9a9
+.results-container .block h5 > span {
+    color: #a9a9a9;
+    position: absolute;
+    left: 1rem;
+    top: .5rem;
+    font-size: 1.4rem;
 }

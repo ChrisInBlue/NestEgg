@@ -8,6 +8,8 @@
 }
 /*COLOURS*/
 :root {
+    --light: #fff;
+    --dark: #111;
     /* WHITES */
     --snow: #FFFAFA;
     --ghostwhite: #F8F8FF;
@@ -65,4 +67,79 @@ html {
 }
 .purple {
     background: var(--purple);
+}
+/* TRANSITION */
+.App, .sidenav-container, .body-container, .flex-wrap > div {
+    transition: .2s ease-in-out;
+}
+/* DARK THEME */
+.dark-theme, .dark-theme .sidenav-container{
+    background: var(--richblacks) !important;
+}
+.dark-theme .body-container {
+    background: var(--oilblack);
+}
+.dark-theme .title-wrap h1 {
+    color: var(--light)
+}
+.dark-theme .flex-wrap > div {
+    background: var(--charcoalgray);
+    border-color: rgba(255,255,255,.05);
+}
+.dark-theme .input-group label,.dark-theme .input-group svg {
+    color: #a9a9a9
+}
+.dark-theme .input-group fieldset {
+    border-color: rgba(255,255,255, 0.23);
+}
+.dark-theme .input-group input,.dark-theme .input-group li {
+    color: #fff;
+}
+.dark-theme .input-group .MuiSlider-markLabel {
+    color: #a9a9a9
+}
+.dark-theme .input-group .value-box {
+    color: #a9a9a9
+}
+.dark-theme .input-group p > span {
+    color: #fff;
+    background-color: #111;
+}
+.dark-theme .flex-wrap > div > h2 {
+    background: rgba(0,0,0,.4);
+    color: #a9a9a9;
+}
+.dark-theme .sidenav-container .date-time-box {
+    color: #a9a9a9;
+}
+.dark-theme .results-container .block {
+    background: rgba(0,0,0,.2);
+}
+.dark-theme .results-container h5,.dark-theme .results-container h3 {
+    color: #fff
+}
+.dark-theme .nav-menu img {
+    filter: invert(.2);
+}
+.dark-theme .nav-menu p {
+    color: rgba(255,255,255,.2);
+}
+.dark-theme .nav-menu .active {
+    background: var(--oilblack);
+}
+.dark-theme .nav-menu .active::before {
+    box-shadow: 0 -25px 0 0 var(--oilblack);
+}
+.dark-theme .nav-menu a::after {
+    background: var(--oilblack);
+    transition: .2s ease-in-out;
+}
+.dark-theme .nav-menu a:hover p,.dark-theme .nav-menu .active p {
+    color: #fff;
+}
+.dark-theme .nav-menu a:hover img,.dark-theme .nav-menu .active img {
+    filter: invert(1);
+}
+.dark-theme .sidenav-container > img {
+    filter: drop-shadow(0 0 0.75rem var(--background));
 }

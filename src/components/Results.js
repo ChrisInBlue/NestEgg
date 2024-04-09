@@ -19,7 +19,7 @@ export default function Results() {
       </div>
       <div className='block'>
         <p>Years till retirement.</p>
-        <h5>{}{yearsToRetirement}</h5>
+        <h5>{yearsToRetirement}</h5>
       </div>
       <div className='block'>
         <p>Required Retirement Savings at Retirement Age.</p>
@@ -33,6 +33,7 @@ export default function Results() {
         <h5>
             <span>{currencyValue}</span>
             {requiredContributions}
+            <em>per month</em>
         </h5>
       </div>
     </div>

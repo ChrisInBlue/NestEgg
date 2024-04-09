@@ -34,3 +34,10 @@
     top: .5rem;
     font-size: 1.4rem;
 }
+.results-container .block h5 > em {
+    font-size: .8rem;
+    color: #a9a9a9;
+    position: absolute;
+    top: 0;
+    margin-left: 1rem;
+}

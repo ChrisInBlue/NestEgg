@@ -26,12 +26,12 @@ export default function Calculator() {
     const handleCalculateClick = () => {
         dispatch(setCalculatorState({
             myName,
-            ageValue,
-            retireAgeValue,
+            ageValue: parseInt(ageValue, 10),
+            retireAgeValue: parseInt(retireAgeValue, 10),
             currencyValue,
-            retirementSavings,
-            retirementContribution,
-            requiredIncome
+            retirementSavings: parseFloat(retirementSavings.replace(/,/g, '')),
+            retirementContribution: parseFloat(retirementContribution.replace(/,/g, '')),
+            requiredIncome: parseFloat(requiredIncome.replace(/,/g, ''))
         }));
     };
 
@@ -145,12 +145,15 @@ export default function Calculator() {
                     select
                     label="Currency"
                     value={ currencyValue }
-                    onChange={
-                        (e, newCurrencyValue) => { setCurrencyValue( newCurrencyValue ); }
-                    }
-                    >
+                    onChange={(e) => setCurrencyValue(e.target.value)}
+                    InputProps={{
+                        startAdornment: <InputAdornment position="start">
+                            {currencies.find(currency => currency.value === currencyValue)?.label}
+                        </InputAdornment>,
+                    }}
+                >
                     {currencies.map((option) => (
-                        <MenuItem key={option.value} value={option.value}>
+                        <MenuItem key={option.value} value={option.label}>
                             {option.label}
                         </MenuItem>
                     ))}

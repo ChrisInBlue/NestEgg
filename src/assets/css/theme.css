@@ -98,7 +98,7 @@ html {
 .dark-theme .input-group .MuiSlider-markLabel {
     color: #a9a9a9
 }
-.dark-theme .input-group .value-box {
+.dark-theme .input-group p, .dark-theme .input-group div > div{
     color: #a9a9a9
 }
 .dark-theme .input-group p > span {

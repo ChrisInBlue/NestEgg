@@ -25,7 +25,7 @@
 .input-group > span {
     width: calc(100% - 120px);
 }
-.input-group p {
+.input-group .value-box {
     text-align: center;
     width: 100px;
     float: right;

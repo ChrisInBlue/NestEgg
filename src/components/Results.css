@@ -1,0 +1,30 @@
+.results-container {
+    height: fit-content;
+}
+.results-container h3 {
+    font-size: 1.2rem;
+    margin: 1rem 0 .5rem;
+}
+.results-container h4 {
+    font-size: 1rem;
+    margin: .5rem 0;
+}
+.results-container h5 {
+    font-size: 2rem;
+}
+.results-container p {
+    font-size: .8rem;
+    color: #a9a9a9
+}
+.results-container .block {
+    background: var(--ghostwhite);
+    border: var(--border);
+    margin: .5rem 0;
+    border-radius: 4px;
+    padding: .5rem;
+    text-align: center;
+}
+.results-container .block h5 span {
+    float: left;
+    color: #a9a9a9
+}

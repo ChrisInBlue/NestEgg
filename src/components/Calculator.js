@@ -1,18 +1,39 @@
 import { useState } from 'react';
+// REDUX
+import { useDispatch } from 'react-redux';
+import { setCalculatorState } from '../redux/calculatorSlice';
 // MATERIAL UI
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import InputAdornment from '@mui/material/InputAdornment';
+import Button from '@mui/material/Button';
 // CSS
 import './Calculator.css'
 
 export default function Calculator() {
+    const [ myName, setMyName ] = useState('')
     const [ ageValue, setAgeValue ] = useState(20);
     const [ retireAgeValue, setRetireAgeValue ] = useState(65);
-    const [ currencyValue, setCurrencyValue ] = useState('R');
-    const [retirementSavings, setRetirementSavings] = useState('')
+    const [ currencyValue, setCurrencyValue ] = useState('');
+    const [ retirementSavings, setRetirementSavings ] = useState('')
+    const [ retirementContribution, setRetirementContribution ] = useState('')
+    const [ requiredIncome, setRequiredIncome ] = useState('')
+
+    const dispatch = useDispatch();
+
+    const handleCalculateClick = () => {
+        dispatch(setCalculatorState({
+            myName,
+            ageValue,
+            retireAgeValue,
+            currencyValue,
+            retirementSavings,
+            retirementContribution,
+            requiredIncome
+        }));
+    };
 
     // SET MARKERS FOR THE RETIREMENT AGE SLIDER
     const marks = [
@@ -41,31 +62,31 @@ export default function Calculator() {
         {
             value: 'ZAR',
             label: 'R',
-          },
-        {
-          value: 'USD',
-          label: '$',
         },
         {
-          value: 'EUR',
-          label: '€',
+            value: 'USD',
+            label: '$',
         },
         {
-          value: 'BTC',
-          label: '฿',
+            value: 'EUR',
+            label: '€',
         },
         {
-          value: 'JPY',
-          label: '¥',
+            value: 'BTC',
+            label: '฿',
         },
-      ];
+        {
+            value: 'JPY',
+            label: '¥',
+        },
+    ];
 
-      // ADD THOUSAND COMMA SEPARATOR
-      const addComma = (e) => {
-        let inputValue = e.target.value.replace(/,/g, ''); 
+    // ADD THOUSAND COMMA SEPARATOR
+    const handleInputChange = (event, setState) => {
+        let inputValue = event.target.value.replace(/,/g, '');
         inputValue = inputValue.replace(/\D/g,''); 
         const formattedInputValue = inputValue.replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-        setRetirementSavings(formattedInputValue); 
+        setState(formattedInputValue); 
     };
 
   return (
@@ -81,14 +102,16 @@ export default function Calculator() {
                     id="name" 
                     label="What is you name?" 
                     variant="outlined" 
+                    onChange={ (e) => setMyName(e.target.value) }
+                    value={ myName }
+                    required
                 />
             </div>
             {/* CURRENT AGE */}
             <div className='input-group'>
                 <label>What is your current age?</label>
                 <Slider 
-                    value={[ageValue]} 
-                    aria-label="Default" 
+                    value={Number(ageValue)} 
                     valueLabelDisplay="auto" 
                     onChange={
                         (e, newValue) => { setAgeValue(newValue); }
@@ -103,8 +126,7 @@ export default function Calculator() {
             <div className='input-group'>
                 <label>What is your retirement age?</label>
                 <Slider 
-                    value={retireAgeValue} 
-                    aria-label="Default" 
+                    value={Number(retireAgeValue)} 
                     valueLabelDisplay="auto" 
                     onChange={
                         (e, newValue) => { setRetireAgeValue(newValue); }
@@ -122,9 +144,9 @@ export default function Calculator() {
                     id="currency"
                     select
                     label="Currency"
-                    defaultValue="ZAR"
+                    value={ currencyValue }
                     onChange={
-                        (e, newCurrencyValue) => { setCurrencyValue(newCurrencyValue); }
+                        (e, newCurrencyValue) => { setCurrencyValue( newCurrencyValue ); }
                     }
                     >
                     {currencies.map((option) => (
@@ -134,11 +156,12 @@ export default function Calculator() {
                     ))}
                 </TextField>
                 <TextField 
+                    required
                     id="retirementSavings" 
                     label="What is your current retirement savings?" 
                     variant="outlined" 
                     value={retirementSavings}
-                    onChange={addComma}
+                    onChange={(e) => handleInputChange(e, setRetirementSavings)}
                     InputProps={{
                         startAdornment: <InputAdornment position="start">
                             {currencyValue}
@@ -149,9 +172,12 @@ export default function Calculator() {
             {/* CURRENT RETIREMENT SAVINGS CONTRIBUTION */}
             <div className='input-group'>
                 <TextField 
+                    required
                     id="retirementContribution" 
                     label="What is your current retirement savings contribution?" 
                     variant="outlined" 
+                    value={retirementContribution}
+                    onChange={(e) => handleInputChange(e, setRetirementContribution)}
                     InputProps={{
                         startAdornment: <InputAdornment position="start">
                             {currencyValue}
@@ -162,15 +188,26 @@ export default function Calculator() {
             {/* MONTHLY INCOME REQUIRED AT RETIREMENT */}
             <div className='input-group'>
                 <TextField 
+                    required
                     id="requiredIncome" 
                     label="What is your required monthly income at retirement?" 
                     variant="outlined" 
+                    value={requiredIncome}
+                    onChange={(e) => handleInputChange(e, setRequiredIncome)}
                     InputProps={{
                         startAdornment: <InputAdornment position="start">
                             {currencyValue}
                         </InputAdornment>,
                     }}
                 />
+            </div>
+            <div className='input-group btn-group'>
+                <Button 
+                    variant="contained"
+                    onClick={handleCalculateClick}
+                >
+                    Calculate
+                </Button>
             </div>
         </Box>
     </div>

@@ -24,3 +24,10 @@
 .date-time-box h4 {
     font-size: 2rem;
 }
+.sidenav-container .switch {
+    position: absolute;
+    bottom: 100px;
+    left: 0;
+    right: 0;
+    margin: auto;
+}

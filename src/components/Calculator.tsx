@@ -12,9 +12,6 @@ import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import './Calculator.css';
 
-// Life expectancy value
-const lifeExpectancy = 90;
-
 // Markers array for age sliders
 const marks = [
     {
@@ -47,8 +44,12 @@ const currencies: CurrencyOption[] = [
   { value: 'BTC', label: '฿' },
   { value: 'JPY', label: '¥' },
 ];
+// Passing life expectancy prop from parent (Body.js) to child component
+interface CalculatorProps {
+    lifeExpectancy: number;
+}
 
-export default function Calculator() {
+const Calculator: React.FC<CalculatorProps> = ({ lifeExpectancy }) => {
     const [myName, setMyName] = useState<string>('');
     const [ageValue, setAgeValue] = useState<number>(20);
     const [retireAgeValue, setRetireAgeValue] = useState<number>(65);
@@ -339,4 +340,5 @@ export default function Calculator() {
         </Snackbar>
     </div>
   );
-}
+};
+export default Calculator;

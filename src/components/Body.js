@@ -3,6 +3,9 @@ import Calculator from './Calculator'
 import Results from './Results'
 
 export default function Body() {
+  // Assuming life expectancy of 90 years
+  const lifeExpectancy = 90;
+
   return (
     <div className='body-container'>
       <div className='title-wrap'>
@@ -11,8 +14,8 @@ export default function Body() {
         <h2>Retirement Calculator</h2>
       </div>
       <div className='flex-wrap'>
-        <Calculator />
-        <Results />
+        <Calculator lifeExpectancy={lifeExpectancy} />
+        <Results lifeExpectancy={lifeExpectancy} />
       </div>
     </div>
   )

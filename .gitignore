@@ -21,3 +21,9 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# secrets
+src/firebase
+
+# backups
+src/components/backup

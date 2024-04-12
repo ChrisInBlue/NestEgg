@@ -4,7 +4,12 @@ import { RootState } from '../redux/store';
 //CSS
 import './Results.css'
 
-export default function Results() {
+// Passing life expectancy prop from parent (Body.js) to child component
+interface ResultsProps {
+    lifeExpectancy: number;
+}
+
+const Results: React.FC<ResultsProps> = ({ lifeExpectancy }) => {
     const { 
         myName, 
         ageValue, 
@@ -15,8 +20,6 @@ export default function Results() {
         requiredIncome 
     } = useSelector((state: RootState) => state.calculator);
 
-    // Assuming life expectancy of 90 years
-    const lifeExpectancy = 90;
     const yearsInRetirement = lifeExpectancy - retireAgeValue;
 
     const currentRetirementSavings = Number(retirementContribution) * 12 * yearsInRetirement;
@@ -70,4 +73,5 @@ export default function Results() {
         </div>
     </div>
   )
-}
+};
+export default Results

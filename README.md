@@ -44,3 +44,33 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+# NestEgg Navigator
+
+NestEgg is a React-based retirement calculator designed to help users plan their retirement savings efficiently. Utilizing modern web technologies like ReactJS, TypeScript, and Redux, this tool offers a user-friendly interface to calculate required retirement savings and monthly contributions.
+
+## Features
+
+- **Retirement Savings Calculation:** Determine the total savings needed for retirement based on current age, retirement age, and other financial factors.
+- **Monthly Contribution Estimator:** Calculate how much you need to save each month to reach your retirement goals.
+- **Customizable Inputs:** Allows users to input their current savings, expected retirement age, and desired monthly income during retirement.
+- **Responsive Design:** Accessible on both desktop and mobile devices.
+
+## Calculations
+- Calculations are based on the following:
+
+Years until Retirement = Retirement Age - Current Age
+
+Total Months until Retirement = Years until Retirement * 12
+
+Additional Savings Needed = Required Retirement Savings - Current Retirement Savings
+
+Monthly Savings Needed = (Additional Savings Needed - (Current Retirement Savings Contribution * Total Months until Retirement)) / Total Months until Retirement
+
+
+## Contact
+
+Chris - chris@bluelightsoftware.co.za
+
+Project Link: https://github.com/ChrisInBlue/NestEgg
+

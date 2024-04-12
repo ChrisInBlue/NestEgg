@@ -19,8 +19,8 @@ export default function Results() {
     const lifeExpectancy = 90;
     const yearsInRetirement = lifeExpectancy - retireAgeValue;
 
-    const currentRetirementSavings = (Number(retirementContribution) * 12 * yearsInRetirement).toLocaleString();
-    const requiredRetirementSavings = (Number(requiredIncome) * 12 * yearsInRetirement).toLocaleString();
+    const currentRetirementSavings = Number(retirementContribution) * 12 * yearsInRetirement;
+    const requiredRetirementSavings = Number(requiredIncome) * 12 * yearsInRetirement;
 
     // Calculate the number of months until retirement age
     const yearsUntilRetirement = retireAgeValue - ageValue;
@@ -30,6 +30,10 @@ export default function Results() {
     let monthlySavingsNeeded = additionalSavingsNeeded / totalMonthsUntilRetirement;
     monthlySavingsNeeded = Number(monthlySavingsNeeded.toFixed(2));
 
+    // Format numbers for display at the very end
+    const formattedCurrentRetirementSavings = currentRetirementSavings.toLocaleString();
+    const formattedRequiredRetirementSavings = requiredRetirementSavings.toLocaleString();
+    const formattedMonthlySavingsNeeded = monthlySavingsNeeded.toLocaleString();
     
   return (
     <div className='results-container'>
@@ -46,21 +50,21 @@ export default function Results() {
          <p>Current estimated retirement savings at retirement age.</p>
             <h5>
                 <span>{currencyValue}</span>
-                {currentRetirementSavings}
+                {formattedCurrentRetirementSavings}
             </h5>
         </div>
         <div className='block'>
          <p>Required retirement savings at retirement age.</p>
             <h5>
                 <span>{currencyValue}</span>
-                {requiredRetirementSavings}
+                {formattedRequiredRetirementSavings}
             </h5>
         </div>
         <div className='block'>
             <p>Required monthly contribution to achieve retirement savings goal.</p>
             <h5>
                 <span>{currencyValue}</span>
-                {monthlySavingsNeeded}
+                {formattedMonthlySavingsNeeded}
                 <em>per month</em>
             </h5>
         </div>

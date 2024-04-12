@@ -11,9 +11,11 @@ import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
 import './Calculator.css';
-import { Fade } from '@mui/material';
 
-// SET MARKERS FOR THE RETIREMENT AGE SLIDER
+// Life expectancy value
+const lifeExpectancy = 90;
+
+// Markers array for age sliders
 const marks = [
     {
         value: 20,
@@ -30,11 +32,7 @@ const marks = [
     {
         value: 80,
         label: 80
-    },
-    {
-        value: 100,
-        label: 100
-    },
+    }
 ];
 
 interface CurrencyOption {
@@ -194,6 +192,7 @@ export default function Calculator() {
                     }}
                     marks={marks}
                     aria-labelledby="input-age-slider"
+                    max={lifeExpectancy}
                 />
                 <div className='value-box'>
                     <p>Current Age:</p>
@@ -205,7 +204,7 @@ export default function Calculator() {
                             inputProps={{
                             step: 1,
                             min: 0,
-                            max: 100,
+                            max: 90,
                             type: 'number',
                             'aria-labelledby': 'input-age-slider',
                             }}
@@ -226,6 +225,7 @@ export default function Calculator() {
                     min={ageValue}
                     marks={marks}
                     aria-labelledby="input-retire-age-slider"
+                    max={lifeExpectancy}
                 />
                 <div className='value-box'>
                     <p>Retirement Age:</p>
@@ -237,7 +237,7 @@ export default function Calculator() {
                             inputProps={{
                             step: 1,
                             min: 0,
-                            max: 100,
+                            max: 90,
                             type: 'number',
                             'aria-labelledby': 'input-retire-age-slider',
                             }}

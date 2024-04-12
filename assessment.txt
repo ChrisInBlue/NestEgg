@@ -32,3 +32,13 @@ Once you have completed the assessment, please share the link to your Github rep
 Please ask if you have any questions. We appreciate your effort and look forward to reviewing your work.
 
 
+BUGS AND TODOS:
+• theme switch toggle to be fixed, not checking local storage for current theme.
+• responsiveness
+• validation on calculator - dont allow submit until values filled in
+• + - buttons for age slider --> DONE
+• require monthly income calculation
+• different layouts (nav)
+• 
+• 
+• 

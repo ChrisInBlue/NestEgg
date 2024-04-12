@@ -15,7 +15,7 @@ export default function Results() {
       <h2>Results</h2>
       <div>
         <h3>Hello <strong>{myName}</strong>,</h3>
-        <p>Your retirement income means the amount of money you might need to live the retirement lifestyle you'd like.</p>
+        {/* <p>Your retirement income means the amount of money you might need to live the retirement lifestyle you'd like.</p> */}
       </div>
       <div className='block'>
         <p>Years till retirement.</p>

@@ -1,10 +1,11 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 // REDUX
 import { useDispatch } from 'react-redux';
-import { setCalculatorState } from '../redux/calculatorSlice';
+import { setCalculatorState } from '../../redux/calculatorSlice';
 // MATERIAL UI
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
+import Input from '@mui/material/Input';
 import TextField from '@mui/material/TextField';
 import MenuItem from '@mui/material/MenuItem';
 import InputAdornment from '@mui/material/InputAdornment';
@@ -20,6 +21,7 @@ export default function Calculator() {
     const [ retirementSavings, setRetirementSavings ] = useState('')
     const [ retirementContribution, setRetirementContribution ] = useState('')
     const [ requiredIncome, setRequiredIncome ] = useState('')
+    const [ error, setError ] = useState(false)
 
     const dispatch = useDispatch();
 
@@ -89,11 +91,19 @@ export default function Calculator() {
         setState(formattedInputValue); 
     };
 
+    // INPUT CONTROLS FOR SLIDERS
+    const handleAgeSlider = (event) => {
+        setAgeValue(event.target.value === '' ? 0 : Number(event.target.value));
+    };
+    const handleRetireAgeSlider = (event) => {
+        setRetireAgeValue(event.target.value === '' ? 0 : Number(event.target.value));
+    };
+
+    
   return (
     <div className='calc-container'>
         <Box 
             component="form"
-            noValidate
             autoComplete="off"
         >
             {/* NAME */}
@@ -105,6 +115,7 @@ export default function Calculator() {
                     onChange={ (e) => setMyName(e.target.value) }
                     value={ myName }
                     required
+                    error={error}
                 />
             </div>
             {/* CURRENT AGE */}
@@ -117,10 +128,25 @@ export default function Calculator() {
                         (e, newValue) => { setAgeValue(newValue); }
                     }
                     marks={marks}
+                    aria-labelledby="input-age-slider"
                 />
-                <p className='value-box'>
-                    Current Age: <span>{ageValue}</span>
-                </p>
+                <div className='value-box'>
+                    <p>Current Age:</p>
+                    <span>
+                        <Input
+                            value={Number(ageValue)}
+                            size="small"
+                            onChange={handleAgeSlider}
+                            inputProps={{
+                            step: 1,
+                            min: 0,
+                            max: 100,
+                            type: 'number',
+                            'aria-labelledby': 'input-age-slider',
+                            }}
+                        />
+                    </span>
+                </div>
             </div>
             {/* RETIREMENT AGE */}
             <div className='input-group'>
@@ -133,10 +159,25 @@ export default function Calculator() {
                     }
                     min={ageValue}
                     marks={marks}
+                    aria-labelledby="input-retire-age-slider"
                 />
-                <p className='value-box'>
-                    Retirement Age: <span>{retireAgeValue}</span>
-                </p>
+                <div className='value-box'>
+                    <p>Retirement Age:</p>
+                    <span>
+                        <Input
+                            value={Number(retireAgeValue)}
+                            size="small"
+                            onChange={handleRetireAgeSlider}
+                            inputProps={{
+                            step: 1,
+                            min: 0,
+                            max: 100,
+                            type: 'number',
+                            'aria-labelledby': 'input-retire-age-slider',
+                            }}
+                        />
+                    </span>
+                </div>
             </div>
             {/* CURRENT RETIREMENT SAVINGS */}
             <div className='input-group input-group-shared'>

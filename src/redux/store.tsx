@@ -7,3 +7,5 @@ export const store = configureStore({
     calculator: calculatorReducer,
   },
 });
+
+export type RootState = ReturnType<typeof store.getState>;

@@ -143,3 +143,11 @@ html {
 .dark-theme .sidenav-container > img {
     filter: drop-shadow(0 0 0.75rem var(--background));
 }
+.dark-theme .input-group .value-box input {
+    color: #fff;
+    background: rgba(0,0,0,0.2);
+}
+.dark-theme .MuiButtonBase-root:disabled {
+    background-color: rgba(255,255,255,0.1);
+    color:rgba(0,0,0,0.5);
+}

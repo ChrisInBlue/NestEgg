@@ -12,6 +12,7 @@
 }
 .input-group > div {
     width: 100%;
+    transition: .2s ease-in-out;
 }
 .input-group input {
     font-family: inherit;
@@ -32,17 +33,21 @@
     font-size: .8rem;
     margin-top: -15px;
 }
-.input-group p > span {
+.input-group .value-box input {
+    text-align: center;
     font-size: 1rem;
     color: var(--obsidian);
     font-weight: 600;
     background: rgba(0,0,0,.05);
-    padding: .4rem;
+    margin-top: 2px;
+    padding: .4rem 0 .4rem 12px;
     border-radius: 4px;
     min-width: 42px;
     display: block;
     border: var(--border);
-    text-align: center;
+}
+.input-group .value-box .css-bz5ng3-MuiInputBase-root-MuiInput-root.Mui-error input {
+    color: var(--red);
 }
 .input-group-shared {
     display: flex;

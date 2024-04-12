@@ -29,23 +29,17 @@ These instructions will get you a copy of the project up and running on your loc
 3. Start the development server
 "npm start"
 
-## Usage
+## Calculations
+- Calculations are based on the following:
 
-...
+Years until Retirement = Retirement Age - Current Age
 
-## Contributing
+Total Months until Retirement = Years until Retirement * 12
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+Additional Savings Needed = Required Retirement Savings - Current Retirement Savings
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+Monthly Savings Needed = (Additional Savings Needed - (Current Retirement Savings Contribution * Total Months until Retirement)) / Total Months until Retirement
 
-## License
-
-Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 

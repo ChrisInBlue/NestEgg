@@ -5,7 +5,7 @@ export const calculatorSlice = createSlice({
   name: 'calculator',
   initialState: {
     myName: '',
-    ageValue: 20,
+    ageValue: 35,
     retireAgeValue: 65,
     currencyValue: 'R',
     retirementSavings: '',

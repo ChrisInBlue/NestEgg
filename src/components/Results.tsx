@@ -43,7 +43,7 @@ const Results: React.FC<ResultsProps> = ({ lifeExpectancy }) => {
       <h2>Results</h2>
         <div>
             <h3>Hello <strong>{myName}</strong>,</h3>
-            <p>For these calculations, we will be assuming the life expectency of <b>90 years</b>.</p>
+            <p>For these calculations, we will be assuming a life expectency of <b>{lifeExpectancy} years</b>.</p>
         </div>
         <div className='block'>
             <p>Years till retirement.</p>

@@ -4,6 +4,7 @@ import './index.css';
 import './assets/css/reset.css';
 import './assets/css/theme.css';
 import App from './App';
+import './assets/css/responsive.css';
 import { Provider } from 'react-redux';
 import { store } from './redux/store';
 import { ThemeProvider } from './Theme';

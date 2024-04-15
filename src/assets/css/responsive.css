@@ -1,1 +1,26 @@
 /* Responsive styling */
+@media only screen and (max-width: 600px) {    
+    html, body, #root, .App {
+        height: fit-content;
+    }
+    .body-container {
+        width: 100%;
+    }
+    .body-container .flex-wrap {
+        flex-direction: column;
+    }
+    .body-container .flex-wrap > div {
+        flex-basis: auto;
+        width: auto;
+        margin-bottom: 1rem;
+    }
+    .results-container p {
+        white-space: pre-wrap;
+    }
+    .title-wrap .mobile-logo {
+        display: block;
+    }
+    .sidenav-container {
+        display: none;
+    }
+}

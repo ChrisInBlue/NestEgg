@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+// REDUX
 import { useDispatch } from 'react-redux';
 import { setCalculatorState } from '../redux/calculatorSlice';
+// MATERIAL UI
 import Box from '@mui/material/Box';
 import Slider from '@mui/material/Slider';
 import Input from '@mui/material/Input';
@@ -10,6 +12,8 @@ import InputAdornment from '@mui/material/InputAdornment';
 import Button from '@mui/material/Button';
 import Snackbar from '@mui/material/Snackbar';
 import Alert from '@mui/material/Alert';
+import Tooltip from '@mui/material/Tooltip';
+// CUSTOM CSS
 import './Calculator.css';
 
 // Markers array for age sliders
@@ -51,7 +55,7 @@ interface CalculatorProps {
 
 const Calculator: React.FC<CalculatorProps> = ({ lifeExpectancy }) => {
     const [myName, setMyName] = useState<string>('');
-    const [ageValue, setAgeValue] = useState<number>(20);
+    const [ageValue, setAgeValue] = useState<number>(35);
     const [retireAgeValue, setRetireAgeValue] = useState<number>(65);
     const [currencyValue, setCurrencyValue] = useState<string>('');
     const [retirementSavings, setRetirementSavings] = useState<number>(0);
@@ -100,19 +104,19 @@ const Calculator: React.FC<CalculatorProps> = ({ lifeExpectancy }) => {
             setSnack(true);
         }
 
-        // Check #retirementSavings has a value
-        if (retirementSavings <= 0) {
-            setRetirementSavingsError(true);
-            isValid = false;
-            setSnack(true);
-        }
+        // // Check #retirementSavings has a value
+        // if (retirementSavings <= 0) {
+        //     setRetirementSavingsError(true);
+        //     isValid = false;
+        //     setSnack(true);
+        // }
 
-        // Check #retirementContribution has a value
-        if (retirementContribution <= 0) {
-            setRetirementContributionError(true);
-            isValid = false;
-            setSnack(true);
-        }
+        // // Check #retirementContribution has a value
+        // if (retirementContribution <= 0) {
+        //     setRetirementContributionError(true);
+        //     isValid = false;
+        //     setSnack(true);
+        // }
 
         // Check #requiredIncome has a value
         if (requiredIncome <= 0) {
@@ -172,29 +176,33 @@ const Calculator: React.FC<CalculatorProps> = ({ lifeExpectancy }) => {
         >
             {/* NAME */}
             <div className='input-group'>
-                <TextField 
-                    id="name" 
-                    label="What is you name?" 
-                    variant="outlined" 
-                    onChange={ (e) => setMyName(e.target.value) }
-                    value={ myName }
-                    required
-                    error={nameError}
-                />
+                <Tooltip title="Enter your full name. This is used to personalize your retirement savings plan." placement="top" arrow>
+                    <TextField 
+                        id="name" 
+                        label="What is you name?" 
+                        variant="outlined" 
+                        onChange={ (e) => setMyName(e.target.value) }
+                        value={ myName }
+                        required
+                        error={nameError}
+                    />
+                </Tooltip>
             </div>
             {/* CURRENT AGE */}
             <div className='input-group'>
                 <label>What is your current age?</label>
-                <Slider 
-                    value={Number(ageValue)} 
-                    valueLabelDisplay="auto" 
-                    onChange={(e, newValue) => { 
-                        setAgeValue(Array.isArray(newValue) ? newValue[0] : newValue); 
-                    }}
-                    marks={marks}
-                    aria-labelledby="input-age-slider"
-                    max={lifeExpectancy}
-                />
+                <Tooltip title="Enter your current age. This helps calculate the number of years until you reach retirement and the duration of your retirement savings plan." placement="top" arrow>
+                    <Slider 
+                        value={Number(ageValue)} 
+                        valueLabelDisplay="auto" 
+                        onChange={(e, newValue) => { 
+                            setAgeValue(Array.isArray(newValue) ? newValue[0] : newValue); 
+                        }}
+                        marks={marks}
+                        aria-labelledby="input-age-slider"
+                        max={lifeExpectancy}
+                    />
+                </Tooltip>
                 <div className='value-box'>
                     <p>Current Age:</p>
                     <span>
@@ -217,17 +225,19 @@ const Calculator: React.FC<CalculatorProps> = ({ lifeExpectancy }) => {
             {/* RETIREMENT AGE */}
             <div className='input-group'>
                 <label>What is your retirement age?</label>
-                <Slider 
-                    value={Number(retireAgeValue)} 
-                    valueLabelDisplay="auto" 
-                    onChange={(e, newValue) => { 
-                        setRetireAgeValue(Array.isArray(newValue) ? newValue[0] : newValue); 
-                    }}
-                    min={ageValue}
-                    marks={marks}
-                    aria-labelledby="input-retire-age-slider"
-                    max={lifeExpectancy}
-                />
+                <Tooltip title="Specify the age at which you plan to retire. This will be used to determine how long we need to plan your savings and investments." placement='top' arrow>
+                    <Slider 
+                        value={Number(retireAgeValue)} 
+                        valueLabelDisplay="auto" 
+                        onChange={(e, newValue) => { 
+                            setRetireAgeValue(Array.isArray(newValue) ? newValue[0] : newValue); 
+                        }}
+                        min={ageValue}
+                        marks={marks}
+                        aria-labelledby="input-retire-age-slider"
+                        max={lifeExpectancy}
+                    />
+                </Tooltip>
                 <div className='value-box'>
                     <p>Retirement Age:</p>
                     <span>
@@ -248,73 +258,81 @@ const Calculator: React.FC<CalculatorProps> = ({ lifeExpectancy }) => {
             </div>
             {/* CURRENT RETIREMENT SAVINGS */}
             <div className='input-group input-group-shared'>
-                <TextField
-                    id="currency"
-                    select
-                    label="Currency"
-                    value={ currencyValue }
-                    onChange={(e) => setCurrencyValue(e.target.value)}
-                    InputProps={{
-                        startAdornment: <InputAdornment position="start">
-                            {currencies.find(currency => currency.value === currencyValue)?.label}
-                        </InputAdornment>,
-                    }}
-                    error={currencyError}
-                >
-                    {currencies.map((option) => (
-                        <MenuItem key={option.value} value={option.label}>
-                            {option.label}
-                        </MenuItem>
-                    ))}
-                </TextField>
-                <TextField 
-                    required
-                    id="retirementSavings" 
-                    label="What is your current retirement savings?" 
-                    variant="outlined" 
-                    value={retirementSavings}
-                    onChange={(e) => handleInputChange(e, setRetirementSavings)}
-                    InputProps={{
-                        startAdornment: <InputAdornment position="start">
-                            {currencyValue}
-                        </InputAdornment>,
-                    }}
-                    error={retirementSavingsError}
-                />
+                <Tooltip title="Select the currency for your financial inputs and outputs. This affects how your retirement savings and contributions are calculated and displayed." placement="top" arrow>
+                    <TextField
+                        id="currency"
+                        select
+                        label="Currency"
+                        value={ currencyValue }
+                        onChange={(e) => setCurrencyValue(e.target.value)}
+                        InputProps={{
+                            startAdornment: <InputAdornment position="start">
+                                {currencies.find(currency => currency.value === currencyValue)?.label}
+                            </InputAdornment>,
+                        }}
+                        error={currencyError}
+                    >
+                        {currencies.map((option) => (
+                            <MenuItem key={option.value} value={option.label}>
+                                {option.label}
+                            </MenuItem>
+                        ))}
+                    </TextField>
+                </Tooltip>
+                <Tooltip title="Enter the total amount you currently have saved for retirement. This amount will be considered in calculating how much more you need to save." placement="top" arrow>
+                    <TextField 
+                        required
+                        id="retirementSavings" 
+                        label="What is your current retirement savings?" 
+                        variant="outlined" 
+                        value={retirementSavings}
+                        onChange={(e) => handleInputChange(e, setRetirementSavings)}
+                        InputProps={{
+                            startAdornment: <InputAdornment position="start">
+                                {currencyValue}
+                            </InputAdornment>,
+                        }}
+                        error={retirementSavingsError}
+                    />
+                </Tooltip>
             </div>
             {/* CURRENT RETIREMENT SAVINGS CONTRIBUTION */}
             <div className='input-group'>
-                <TextField 
-                    required
-                    id="retirementContribution" 
-                    label="What is your current retirement savings contribution?" 
-                    variant="outlined" 
-                    value={retirementContribution}
-                    onChange={(e) => handleInputChange(e, setRetirementContribution)}
-                    InputProps={{
-                        startAdornment: <InputAdornment position="start">
-                            {currencyValue}
-                        </InputAdornment>,
-                    }}
-                    error={retirementContributionError}
-                />
+                <Tooltip title="Specify how much you are currently contributing to your retirement savings each month. This helps in projecting the growth of your savings over time." placement="top" arrow>
+                    <TextField 
+                        required
+                        id="retirementContribution" 
+                        label="What is your current retirement savings contribution per month?" 
+                        variant="outlined" 
+                        value={retirementContribution}
+                        onChange={(e) => handleInputChange(e, setRetirementContribution)}
+                        InputProps={{
+                            startAdornment: <InputAdornment position="start">
+                                {currencyValue}
+                            </InputAdornment>,
+                        }}
+                        error={retirementContributionError}
+                    />
+                </Tooltip>
             </div>
             {/* MONTHLY INCOME REQUIRED AT RETIREMENT */}
             <div className='input-group'>
-                <TextField 
-                    required
-                    id="requiredIncome" 
-                    label="What is your required monthly income at retirement?" 
-                    variant="outlined" 
-                    value={requiredIncome}
-                    onChange={(e) => handleInputChange(e, setRequiredIncome)}
-                    InputProps={{
-                        startAdornment: <InputAdornment position="start">
-                            {currencyValue}
-                        </InputAdornment>,
-                    }}
-                    error={requiredIncomeError}
-                />
+                <Tooltip title="Enter the monthly income you will need during retirement to maintain your desired lifestyle. This helps us calculate the total retirement savings required." placement="top" arrow>
+                    <TextField 
+                        required
+                        id="requiredIncome" 
+                        label="What is your required monthly income at retirement?" 
+                        variant="outlined" 
+                        value={requiredIncome}
+                        onChange={(e) => handleInputChange(e, setRequiredIncome)}
+                        InputProps={{
+                            startAdornment: <InputAdornment position="start">
+                                {currencyValue}
+                            </InputAdornment>,
+                        }}
+                        error={requiredIncomeError}
+                    />
+                </Tooltip>
             </div>
             <div className='input-group btn-group'>
                 <Button 
@@ -335,7 +353,7 @@ const Calculator: React.FC<CalculatorProps> = ({ lifeExpectancy }) => {
                 variant="filled"
                 sx={{ width: '100%' }}
             >
-                Oops! There was an issue. Please make  sure all fields are filled out correctly.
+                Oops! There was an issue. Please make sure all fields are filled out correctly.
             </Alert>
         </Snackbar>
     </div>
